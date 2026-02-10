@@ -1,31 +1,9 @@
-version: '3.8'
+version: '3.3'
 
 services:
   frontend:
     build: ./web
     container_name: kn1ghts-web
-    volumes:
-      - certbot-www:/var/www/certbot
-      - letsencrypt:/etc/letsencrypt
     restart: unless-stopped
     ports:
-      - 80:80
-      - 443:443
-
-  certbot:
-    image: certbot/certbot
-    container_name: kn1ghts_certbot
-    volumes:
-      - certbot-www:/var/www/certbot
-      - letsencrypt:/etc/letsencrypt
-    entrypoint: >
-      sh -c "trap exit TERM;
-      while :; do
-        certbot renew;
-        docker restart kn1ghts-web
-        sleep 12h;
-      done"
-
-volumes:
-  certbot-www:
-  letsencrypt:
+      - 127.0.0.1:1337:80
