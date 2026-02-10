@@ -1,0 +1,32 @@
+[
+  {
+    "nick": "M43s7r0.",
+    "role": "web / pwn",
+    "tags": ["web", "pwn", "linux", "misc"],
+    "github": "https://github.com/Qurclinc"
+  },
+  {
+    "nick": "Walter White",
+    "role": "web",
+    "tags": ["web", "active directory", "big balls"],
+    "github": "https://github.com/Liremant"
+  },
+  {
+    "nick": "sascena",
+    "role": "rev",
+    "tags": ["reverse", "linux", "furry"],
+    "github": "https://github.com/gfffccbb"
+  },
+  {
+    "nick": "Ada Ruby",
+    "role": "rev / osint",
+    "tags": ["reverse", "misc", "stegano", "furry"],
+    "github": "https://github.com/AdaRuby"
+  },
+  {
+    "nick": "Lorraine",
+    "role": "design / osint",
+    "tags": ["design", "art", "osint"],
+    "github": "https://github.com/lorraine-weine"
+  }
+]
