@@ -6,4 +6,4 @@ services:
     container_name: kn1ghts-web
     restart: unless-stopped
     ports:
-      - 127.0.0.1:1337:80
+      - 1337:80
