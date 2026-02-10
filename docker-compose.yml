@@ -22,6 +22,7 @@ services:
       sh -c "trap exit TERM;
       while :; do
         certbot renew;
+        docker restart kn1ghts-web
         sleep 12h;
       done"
 
