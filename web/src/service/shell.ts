@@ -25,7 +25,7 @@ class Shell {
         this.uid = 1001;
         this.gid = 1001;
         this.servername = "kn1ghts";
-        this.allowedCommands = ["help", "pwd", "cat", "ls", "echo", "whoami", "id", "clear", "exit"]
+        this.allowedCommands = ["help", "neofetch", "pwd", "cat", "ls", "echo", "whoami", "id", "clear", "exit"]
     }
 
     private readInfo(nick: string): string {
@@ -121,6 +121,32 @@ class Shell {
 
     clear(): string {
         return "\n".repeat(255);
+    }
+
+    neofetch(): string {
+    return `
+██╗  ██╗███╗   ██╗ ██╗ ██████╗ ██╗  ██╗████████╗███████╗   
+██║ ██╔╝████╗  ██║███║██╔════╝ ██║  ██║╚══██╔══╝██╔════╝   
+█████╔╝ ██╔██╗ ██║╚██║██║  ███╗███████║   ██║   ███████╗   
+██╔═██╗ ██║╚██╗██║ ██║██║   ██║██╔══██║   ██║   ╚════██║   
+██║  ██╗██║ ╚████║ ██║╚██████╔╝██║  ██║   ██║   ███████║██╗
+╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝
+
+guest@kn1ghts
+--------------
+OS: Kn1ghtsOS
+Host: 81D2 (Lenovo ideapad 330-15ARR)
+Kernel: Linux 6.17.9-kn1ghts1-1
+Uptime: 13 hours 37 mins
+Packages: 1337
+Shell: bash
+DE: React
+WM: TailwindWM
+Terminal: kn1ghts-term
+CPU: Brain™ x86_64
+GPU: RTX 4060 (Laptop)
+Memory: 578MB / 16GB
+`.trim();
     }
 }
 
