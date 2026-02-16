@@ -1,3 +1,5 @@
+import { useState } from "react";
+import Terminal from "./components/Terminal";
 import team from './assets/participants.json'
 import MemberCard from './components/MemberCard'
 import logo from './assets/logo.png'
@@ -5,10 +7,23 @@ import './style.css'
 
 function App() {
   const year = new Date().getFullYear();
+  const [terminalOpen, setTerminalOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-black text-neon font-ui">
       <div className="bg-cyber" />
+      
+      <button
+        onClick={() => setTerminalOpen(true)}
+        className="fixed top-6 right-6 z-20 border border-neon/60 px-4 py-2 rounded text-neon font-mono text-sm hover:bg-neon/10 hover:shadow-neon transition"
+      >
+        Open terminal
+      </button>
+
+      {terminalOpen && (
+        <Terminal onClose={() => setTerminalOpen(false)} />
+      )}
+      
       {/* Header */}
       <header className="flex flex-col items-center mt-20 mb-14 px-4 relative z-10">
         <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
