@@ -11,7 +11,8 @@ class Shell {
         [".", "cat: .: Is a directory"],
         ["..", "cat: ..: Is a directory"],
         [".flag.txt", "kn1ghts{Y0u_@R3_W3lc0me!}"],
-        ["about.txt", "Small russian CTF team. Founded in 2024."], 
+        ["about.txt", "KN1GHTS — CTF team since 2024."], 
+        ["contact.txt", "kn1ghts@cybervoid.ru"],
         ["logo.png", "Cannot display binary data"],
         ["M43s7r0.txt", this.readInfo("M43s7r0.")],
         ["Walter.txt", this.readInfo("Walter White")],
@@ -35,20 +36,6 @@ class Shell {
 
     private getFilePrefix(filename: string): string {
         return `-rw-r--r-- 1 ${this.username} ${this.groupname} ${(filename === "." || filename === "..") ? "4096" : this.files.get(filename)?.length} Feb 14 13:37 `
-    }
-
-    // TODO: Need later
-    // private parseFlags(command: String): Array<string> {
-    //     let result: string[] = [];
-    //     command.split(" ").map((res) => {
-    //         result.push(res)
-    //     })
-
-    //     return result;
-    // }
-
-    test()  {
-        return this.files;
     }
 
     getPrefix(): string {

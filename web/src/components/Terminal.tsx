@@ -6,6 +6,7 @@ interface TerminalProps {
 }
 
 export default function Terminal({ onClose }: TerminalProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
   const shellRef = useRef<Shell>(new Shell());
   const [lines, setLines] = useState<string[]>([
     "Welcome to kn1ghts terminal.",
@@ -23,6 +24,14 @@ export default function Terminal({ onClose }: TerminalProps) {
   useEffect(() => {
     termRef.current?.focus();
   }, []);
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: "auto",
+    });
+  }, [lines]);
+
 
   function parseArgs(cmd: string): { command: string; args: string[] } | null {
     const regex = /"([^"]*)"|'([^']*)'|(\S+)/g;
@@ -253,11 +262,12 @@ export default function Terminal({ onClose }: TerminalProps) {
         </div>
 
         <div
-          ref={termRef}
+          ref={scrollRef}
           tabIndex={0}
           onKeyDown={handleKeyDown}
-          className="flex-1 overflow-hidden p-4 whitespace-pre-wrap leading-relaxed outline-none cursor-text"
+          className="flex-1 overflow-y-auto p-4 whitespace-pre-wrap leading-relaxed outline-none cursor-text"
         >
+
           {lines.map((line, i) => (
             <div key={i}>{line}</div>
           ))}
