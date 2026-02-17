@@ -12,7 +12,7 @@ class Shell {
         ["..", "cat: ..: Is a directory"],
         [".flag.txt", "kn1ghts{Y0u_@R3_W3lc0me!}"],
         ["about.txt", "KN1GHTS — CTF team since 2024."], 
-        ["contact.txt", "kn1ghts@cybervoid.ru"],
+        ["contact.txt", "You can write an email: kn1ghts@cybervoid.ru\nOr find any contact information on github."],
         ["logo.png", "Cannot display binary data"],
         ["M43s7r0.txt", this.readInfo("M43s7r0.")],
         ["Walter.txt", this.readInfo("Walter White")],
@@ -35,7 +35,8 @@ class Shell {
     }
 
     private getFilePrefix(filename: string): string {
-        return `-rw-r--r-- 1 ${this.username} ${this.groupname} ${(filename === "." || filename === "..") ? "4096" : this.files.get(filename)?.length} Feb 14 13:37 `
+        const isDirectory: boolean = (filename === "." || filename === "..")
+        return `${isDirectory ? "d" : "-"}rw${isDirectory ? "x" : "-"}r--r-- 1 ${this.username} ${this.groupname} ${isDirectory ? "4096" : this.files.get(filename)?.length} Feb 14 13:37 `
     }
 
     getPrefix(): string {
