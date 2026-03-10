@@ -10,7 +10,7 @@ class Shell {
     files: Map<string, string> = new Map([
         [".", "cat: .: Is a directory"],
         ["..", "cat: ..: Is a directory"],
-        [".flag.txt", "kn1ghts{Y0u_@R3_W3lc0me!}"],
+        [".flag.txt", atob("a24xZ2h0c3tZMHVfQFIzX1czbGMwbWUhfQo=")],
         ["about.txt", "KN1GHTS — CTF team since 2024."], 
         ["contact.txt", "You can write an email: kn1ghts@cybervoid.ru\nOr find any contact information on github."],
         ["logo.png", "Cannot display binary data"],
